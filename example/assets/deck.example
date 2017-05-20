@@ -1,0 +1,8 @@
+const HelloMessage = ({ name }) => {
+  return <div>Hello {name}</div>
+}
+
+render(
+  <HelloMessage name="Jane" />,
+  mountNode
+)

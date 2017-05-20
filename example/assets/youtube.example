@@ -1,0 +1,20 @@
+const Application = ({ name }) => {
+  return (
+    <div>
+      <YouTube videoId="DLzxrzFCyOs" />
+
+
+      <MuiThemeProvider>
+        <div>
+          <DatePicker hintText="Portrait Dialog" />
+
+        </div>
+      </MuiThemeProvider>
+    </div>
+  )
+}
+
+render(
+  <Application name="Jane" />,
+  mountNode
+)

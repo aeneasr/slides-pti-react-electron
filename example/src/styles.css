@@ -1,0 +1,4 @@
+.playground .playgroundPreview > div {
+  overflow: auto;
+  height: calc(60vh - 5%);
+}

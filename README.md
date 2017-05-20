@@ -1,1 +1,1 @@
-# slides-pti-react-electron
+# 12-min-react
