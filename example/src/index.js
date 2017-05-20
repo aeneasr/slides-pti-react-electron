@@ -63,6 +63,7 @@ export default class Presentation extends React.Component {
     <li>React changed that</li>
     <li>Today, I will introduce you to react using some live coding, and we will have time at the end so you'll be able to get started with react</li>
     <li>The next session where I'll support Kevin Goslar from Originate on modern web development starts after this session, you will have two full hours of our time</li>
+    <li>PLEASE ASK QUESTIONS</li>
 </ul>
 `}>
           <Heading size={1} fit caps lineHeight={1} textColor="white">
@@ -89,8 +90,8 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["slide"]} bgColor="primary" notes={`
 <ul>
-    <li>Before we go deep on this topic, let's look at some demos first</li>
-    <li>I hope that those demos demonstrate you the power of react</li>
+    <li>Show button</li>
+    <li>Show code: <a href="https://github.com/arekkas/slides-pti-react-electron/blob/master/example/src/index.js">https://github.com/arekkas/slides-pti-react-electron/blob/master/example/src/index.js</a></li>
 </ul>
           `}>
           <Heading size={1} caps fit textColor="tertiary">
@@ -104,8 +105,8 @@ export default class Presentation extends React.Component {
         <Slide transition={["slide"]} bgColor="black" maxHeight="90vh" maxWidth="80vw" notes={`<ul>
 <li>
     Why did I build this?<br />
-    --> Serlo<br/>
-    --> Talk about Serlo<br/>
+    --> Serlo: <a href="https://de.serlo.org">serlo</a><br/>
+    --> Talk about Serlo: <a href="https://de.serlo.org/mathe/zahlen-groessen/prozent-zinsrechnung/prozentrechnung-mittels-formeln">calculation of percentages</a><br/>
     --> Talk briefly about markdown and issues authors have (show the experience)<br />
 </li>
 <li>
@@ -128,6 +129,9 @@ export default class Presentation extends React.Component {
 </li>
 <li>
     Is highly extensible (show plugin bar)
+</li>
+<li>
+    I wrote 4 versions of this editor, threw 3 of them away because it didn't work, and then came react.
 </li>
 </ul>`}>
           <iframe src="https://editor.ory.am" style={{ width: '100%', height: '75vh' }} />
@@ -169,6 +173,11 @@ export default class Presentation extends React.Component {
               advanced responsive websites.
             </Heading>
           </Appear>
+          <Appear fid="2">
+            <Heading size={4} textColor="primary">
+              www.ory.am/sites
+            </Heading>
+          </Appear>
         </Slide>
 
         <Slide transition={["zoom"]} bgColor="primary" notes={`Talk about the attempts`}>
@@ -180,6 +189,14 @@ export default class Presentation extends React.Component {
               So...what is React?
             </Heading>
           </Appear>
+        </Slide>
+
+        <Slide transition={["zoom", "fade"]} bgColor="black">
+          <BlockQuote>
+            <Quote>
+              React is a JavaScript framework making it painless to create interactive user interfaces at scale.
+            </Quote>
+          </BlockQuote>
         </Slide>
 
         <Slide maxWidth="90%" notes={`<ul>
@@ -218,14 +235,6 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
-        <Slide transition={["zoom", "fade"]} bgColor="black">
-          <BlockQuote>
-            <Quote>
-              React makes it painless to create interactive user interfaces at scale.
-            </Quote>
-          </BlockQuote>
-        </Slide>
-
         <Slide transition={["zoom"]} bgColor="secondary" textColor="primary">
           <List>
             <ListItem>It makes writing HTML + CSS + Javascript easier</ListItem>
@@ -251,9 +260,9 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
-        <Slide maxWidth="90%" notes={`<TimePicker
+        <Slide maxWidth="90%" notes={`TimePicker
             hintText="12hr Format"
-          />`}>
+          /`}>
           <ComponentPlayground
             scope={{
               YouTube, DatePicker, MuiThemeProvider, TimePicker
@@ -330,7 +339,7 @@ render(
             What about electron?
           </Heading>
 
-          <Appear><ListItem><a style={{ color: 'black' }}
+          <Appear><ListItem><a style={{ color: 'white' }}
             href="https://github.com/chentsulin/electron-react-boilerplate">Electron + React Boilerplate</a></ListItem></Appear>
 
         </Slide>
@@ -357,6 +366,9 @@ render(
         <Slide transition={["zoom"]} bgColor="black">
           <Heading size={1} caps fit textColor="primary">
             Now it's your turn!
+          </Heading>
+          <Heading size={2} fit textColor="tertiary">
+            Ask questions, write code, and check out tutorials!
           </Heading>
         </Slide>
 
