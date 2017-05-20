@@ -368,7 +368,7 @@ render(
             Now it's your turn!
           </Heading>
           <Heading size={2} fit textColor="tertiary">
-            Ask questions, write code, and check out tutorials!
+            Ask questions, write code - and check out tutorials!
           </Heading>
         </Slide>
 
