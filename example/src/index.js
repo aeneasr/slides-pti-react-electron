@@ -260,9 +260,16 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
-        <Slide maxWidth="90%" notes={`TimePicker
-            hintText="12hr Format"
-          /`}>
+        <Slide maxWidth="90%" notes={`
+<ul>
+    <li>Composition</li>
+    <li>Show material ui: <a href="http://www.material-ui.com/#/components/list">material ui</a></li>
+    <li>Google react component: <a href="https://github.com/troybetz/react-youtube">react-youtube</a></li>
+    <li>Google gallery react: <a href="https://github.com/xiaolin/react-image-gallery">react-image-gallery</a></li>
+</ul>
+<pre><code>
+    <TimePicker hintText="pick a time" />
+</code></pre>`}>
           <ComponentPlayground
             scope={{
               YouTube, DatePicker, MuiThemeProvider, TimePicker
@@ -279,18 +286,125 @@ export default class Presentation extends React.Component {
           </Heading>
         </Slide>
 
-        <Slide maxWidth="90%" notes={`getDataFromBackend`} nodes={`const Application = ({ data }) => (
-  <MuiThemeProvider>
-    <List>
-      {data.map(({ title, icon }) => (<ListItem primaryText={title} leftIcon={icon} />))}
-    </List>
-  </MuiThemeProvider>
+        <Slide maxWidth="90%" notes={`
+<ul>
+    <li>This is dataflow</li>
+    <li>Task at hand: show a list of things</li>
+    <li>Task at hand: download the list of things from a server</li>
+    <li>Task at hand: listen to changes</li>
+
+    <li>
+<pre><code>const Application = () =&gt; (
+  &lt;MuiThemeProvider&gt;
+    &lt;div&gt;
+      &lt;List&gt;
+        {['foo', 'bar'].map(
+          (title) =&gt; &lt;ListItem primaryText={title} /&gt;
+        )}
+      &lt;/List&gt;
+    &lt;/div&gt;
+  &lt;/MuiThemeProvider&gt;
 )
 
 render(
-  <Application data={getDataFromBackend()} />,
+  &lt;Application /&gt;,
   mountNode
-)`}>
+)
+</code></pre>
+    </li>
+
+    <li>
+<pre><code>const Application = ({ data }) =&gt; (
+  &lt;MuiThemeProvider&gt;
+    &lt;div&gt;
+      &lt;List&gt;
+        {data.map(
+          (title) =&gt; &lt;ListItem primaryText={title} /&gt;
+        )}
+      &lt;/List&gt;
+    &lt;/div&gt;
+  &lt;/MuiThemeProvider&gt;
+)
+
+render(
+  &lt;Application
+    data={['foo', 'bar']}
+    /&gt;,
+  mountNode
+)
+</code></pre>
+    </li>
+
+    <li>
+<pre><code>const Application = ({ data }) =&gt; (
+  &lt;MuiThemeProvider&gt;
+    &lt;div&gt;
+      &lt;List&gt;
+        {data.map(
+          ({ title }) =&gt; &lt;ListItem primaryText={title} /&gt;
+        )}
+      &lt;/List&gt;
+    &lt;/div&gt;
+  &lt;/MuiThemeProvider&gt;
+)
+
+render(
+  &lt;Application
+    data={[{title: 'foo'}, {title: 'bar'}]}
+    /&gt;,
+  mountNode
+)
+</code></pre>
+    </li>
+
+    <li>
+<pre><code>const Application = ({ data }) =&gt; (
+  &lt;MuiThemeProvider&gt;
+    &lt;div&gt;
+      &lt;List&gt;
+        {data.map(
+          ({ title, icon }) =&gt; &lt;ListItem primaryText={title} leftIcon={icon} /&gt;
+        )}
+      &lt;/List&gt;
+    &lt;/div&gt;
+  &lt;/MuiThemeProvider&gt;
+)
+
+render(
+  &lt;Application
+    data={getDataFromBackend()}
+    /&gt;,
+  mountNode
+)
+</code></pre>
+    </li>
+
+    <li>
+<pre><code>
+const Application = ({ data, onChange }) =&gt; (
+  &lt;MuiThemeProvider&gt;
+    &lt;div&gt;
+      &lt;input type=&quot;text&quot; onChange={onChange} /&gt;
+      &lt;List&gt;
+        {data.map(
+          ({ title, icon }) =&gt; &lt;ListItem primaryText={title} leftIcon={icon} /&gt;
+        )}
+      &lt;/List&gt;
+    &lt;/div&gt;
+  &lt;/MuiThemeProvider&gt;
+)
+
+render(
+  &lt;Application
+    data={getDataFromBackend()}
+    onChange={(e) =&gt; alert(e.target.value)}
+    /&gt;,
+  mountNode
+)
+</code></pre>
+    </li>
+</ul>
+`}>
           <ComponentPlayground
             scope={{
               getDataFromBackend: () => ([
@@ -312,7 +426,13 @@ render(
           </Heading>
         </Slide>
 
-        <Slide maxWidth="90%" notes={`getDataFromBackend`}>
+        <Slide maxWidth="90%" notes={`
+<ul>
+    <li>Open developer tools before doing anything</li>
+    <li>Show that the stuff inside of the {} is just javascript by using console.log</li>
+    <li>Go to babel and show how transpile works: <a href="https://babeljs.io/repl/#">babel</a></li>
+</ul>
+        `}>
           <ComponentPlayground
             scope={{
               getDataFromBackend: () => ([
@@ -333,15 +453,26 @@ render(
     <li>npm run dev</li>
     <li>Show react developer tools (react tab)</li>
     <li>Show redux developer tools</li>
+    <li>Change some text</li>
+    <li>Show the counter</li>
 </ul>
         `}>
           <Heading size={1} caps fit textColor="primary">
             What about electron?
           </Heading>
 
-          <Appear><ListItem><a style={{ color: 'white' }}
-            href="https://github.com/chentsulin/electron-react-boilerplate">Electron + React Boilerplate</a></ListItem></Appear>
+          <Appear>
+            <Heading size={2} caps fit textColor="white">
+              It's like cordova for the desktop
+            </Heading>
+          </Appear>
 
+          <Appear>
+            <Text textColor="white">
+              Deep-dive: <a style={{ color: 'white' }}
+              href="https://github.com/chentsulin/electron-react-boilerplate">Electron + React
+              Boilerplate</a></Text>
+          </Appear>
         </Slide>
 
         <Slide transition={["slide"]} bgColor="black">

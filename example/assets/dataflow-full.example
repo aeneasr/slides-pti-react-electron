@@ -1,12 +1,20 @@
-const Application = ({ data }) => (
+const Application = ({ data, onChange }) => (
   <MuiThemeProvider>
-    <List>
-      {data.map(({ title, icon }) => (<ListItem primaryText={title} leftIcon={icon} />))}
-    </List>
+    <div>
+      <input type="text" onChange={onChange} />
+      <List>
+        {data.map(
+          ({ title, icon }) => <ListItem primaryText={title} leftIcon={icon} />
+        )}
+      </List>
+    </div>
   </MuiThemeProvider>
 )
 
 render(
-  <Application data={getDataFromBackend()} />,
+  <Application
+    data={getDataFromBackend()}
+    onChange={(e) => alert(e.target.value)}
+    />,
   mountNode
 )

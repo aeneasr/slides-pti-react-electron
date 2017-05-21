@@ -59,6 +59,8 @@ export const HeaderContainer = styled.div`
 `;
 
 export const Notes = styled.div`
+  right: 0;
+  overflow: auto;
   color: #fff;
   display: block;
   height: 90%;
